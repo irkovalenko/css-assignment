@@ -1,212 +1,277 @@
-  :root {
-    --max-width: 1100px;
-    --blue: #3882f6;
-    --text-dark: #1b1b1b;
-    --text-light: #f9faf8;
-    --bg-light: #f9faf8;
-    --bg-dark: #1f2937;
-    --border: #e2e2e0;
-  }
+:root {
+  --max-width: 1100px;
+  --blue: #3882f6;
+  --text-dark: #1b1b1b;
+  --text-light: #f9faf8;
+  --bg-light: #f9faf8;
+  --bg-dark: #1f2937;
+  --border: #e2e2e0;
+}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/*
+  padding and border are included inside 
+  an element's declared width/height, instead of adding to it */
 
-  body {
-    font-family:Roboto, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.5;
-  }
+body {
+  font-family: Roboto, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
 
-  /* Shared width wrapper — every section's inner content uses this
-     so all rows line up at the same width */
-  .wrap {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+/* Shared class */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto; /* auto centers left/right margins */
+  padding: 0 24px;
+}
 
-  a { text-decoration: none; color: inherit; }
-  ul { list-style: none; }
-  img { max-width: 100%; display: block; }
+a {
+  text-decoration: none;
+  color: inherit;
+} /* strips underline for links */
+ul {
+  list-style: none;
+} /* so there is no dot in nav */
+img {
+  max-width: 100%;
+  display: block;
+}
 
-  /* ---------- Header ---------- */
+/* ---------- Header ---------- */
 
-  header, footer {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+header,
+footer,
+.hero {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+header .logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+header nav ul {
+  display: flex;
+  gap: 32px;
+}
+
+header nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+header nav a:hover {
+  color: var(--blue);
+}
+
+/* ---------- Hero ---------- */
+
+.hero .wrap {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hero-image {
+  flex: 1;
+  aspect-ratio: 4 / 3; /* prevents collapse to 0 */
+  background: linear-gradient(135deg, var(--blue), #74c69d);
+  border-radius: 12px;
+}
+
+.hero-text h1 {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--text-light);
+}
+
+.hero-text p {
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer; /* on the rest it is arrow */
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Info section ---------- */
+.info {
+  background: var(--bg-light);
+  padding: 64px 0;
+}
+
+.info .wrap > h2 {
+  /* h2 is direct child of a wrap */
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.boxes {
+  display: flex;
+  gap: 24px;
+}
+
+.box {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.box .item {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.box p {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+/* ---------- Quote ---------- */
+.quote {
+  padding: 72px 0;
+  text-align: center;
+  background-color: #e5e7eb;
+  margin-top: 48px;
+}
+
+.quote .wrap {
+  max-width: 700px;
+}
+
+.quote blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.quote cite {
+  font-style: normal;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+/* ---------- Call to action ---------- */
+.cta {
+  background: var(--blue);
+  color: #fff;
+  padding: 56px 0;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.cta h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.cta .btn {
+  color: var(--text-light);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  margin-top: 48px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-top: 48px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.close-menu {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .hamburger {
+    display: block;
   }
 
   header .wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
+    position: relative;
   }
 
-  header .logo {
-    font-size: 1.3rem;
-    font-weight: 700;
+  header nav {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 10;
+  }
+
+  header nav#menu:target {
+    max-height: 300px;
   }
 
   header nav ul {
-    display: flex;
-    gap: 32px;
+    flex-direction: column;
+    gap: 0;
   }
 
-  header nav a {
-    font-size: 0.95rem;
-    font-weight: 500;
+  header nav ul li {
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .close-menu {
+    display: block;
+    text-align: right;
+    padding: 16px 24px 0;
+    font-size: 1.3rem;
     color: var(--text-light);
   }
-
-  header nav a:hover { color: var(--blue); }
-
-  /* ---------- Hero ---------- */
-  .hero .wrap {
-    display: flex;
-    align-items: center;
-    background-color: var(--bg-dark);
-    gap: 48px;
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
-  .hero-image {
-    flex: 1;
-    aspect-ratio: 4 / 3;
-    background: linear-gradient(135deg, var(--blue), #74c69d);
-    border-radius: 12px;
-  }
-
-  .hero-text h1 {
-    font-size: 2.4rem;
-    line-height: 1.15;
-    margin-bottom: 16px;
-    color: var(--text-light);
-  }
-
-  .hero-text p {
-    color: var(--text-light);
-    margin-bottom: 24px;
-  }
-
-  .btn {
-    display: inline-block;
-    background: var(--blue);
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn:hover { opacity: 0.9; }
-
-  /* ---------- Info section ---------- */
-  .info {
-    background: var(--bg-light);
-    padding: 64px 0;
-  }
-
-  .info .wrap > h2 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    text-align: center;
-
-  }
-
-  .boxes {
-    display: flex;
-    gap: 24px;
-  }
-
-  .box {
-    flex: 1;
-    background: #fff;
-    border: 1px solid var(--blue);
-    border-radius: 10px;
-    padding: 24px;
-  }
-
-  .box .item {
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .box p {
-    color: var(--text-dark);
-    font-size: 0.95rem;
-  }
-
-  /* ---------- Quote ---------- */
-  .quote {
-    padding: 72px 0;
-    text-align: center;
-    background-color: #e5e7eb;
-  }
-
-  .quote .wrap {
-    max-width: 700px;
-  }
-
-  .quote blockquote {
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--text-dark);
-    margin-bottom: 16px;
-  }
-
-  .quote cite {
-    font-style: normal;
-    color: var(--text-dark);
-    font-size: 0.9rem;
-  }
-
-  /* ---------- Call to action ---------- */
-  .cta {
-    background: var(--blue);
-    color: #fff;
-    padding: 56px 0;
-    text-align: center;
-  }
-
-  .cta h2 {
-    font-size: 1.7rem;
-    margin-bottom: 12px;
-  }
-
-  .cta p {
-    margin-bottom: 24px;
-    opacity: 0.9;
-  }
-
-  .cta .btn {
-    border: solid 2px white;
-    color: var(--text-light);
-  }
-
-  /* ---------- Footer ---------- */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 32px 0;
-  }
-
-  footer .wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-light);
-    font-size: 0.9rem;
-  }
-
-  footer nav ul {
-    display: flex;
-    gap: 20px;
-  }
-
-  @media (max-width: 700px) {
-    header nav ul { gap: 16px; }
-    .hero .wrap { flex-direction: column; }
-    .boxes { flex-direction: column; }
-    footer .wrap { flex-direction: column; gap: 12px; text-align: center; }
-  }
+}
