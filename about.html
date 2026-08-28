@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How Voltbook started, how we choose which laptops to sell, and the small team behind the shop."
+    />
+    <title>About Voltbook - our story</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ============================ Shared header ======================== -->
+    <header class="site-header">
+      <div class="wrap">
+        <a href="index.html" class="logo">Volt<span>book</span></a>
+
+        <!-- CSS-only burger menu: the checkbox holds the open/closed state -->
+        <input type="checkbox" id="nav-toggle" class="nav-checkbox" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </label>
+
+        <nav class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================= Page hero ======================== -->
+      <section class="page-hero">
+        <div class="wrap">
+          <h1>We started Voltbook because buying a laptop was awful</h1>
+          <p>
+            Confusing model names, pushy add-ons and support queues that go
+            nowhere. We thought a laptop shop could be calmer than that.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================== Story =========================== -->
+      <section class="section">
+        <div class="wrap split">
+          <div>
+            <h2>From a repair bench to a shop</h2>
+            <p>
+              Voltbook grew out of a small repair workshop. People kept asking the
+              same question while they waited: "what should I have bought instead?"
+            </p>
+            <p>
+              So in 2021 we started stocking the handful of machines we actually
+              recommended - the ones that came back for repairs the least.
+            </p>
+          </div>
+          <img
+            src="assets/img/hero-1200.jpg"
+            srcset="
+              assets/img/hero-800.jpg   800w,
+              assets/img/hero-1200.jpg 1200w,
+              assets/img/hero-1600.jpg 1600w
+            "
+            sizes="(max-width: 900px) 100vw, 50vw"
+            width="1200"
+            height="675"
+            alt="The Voltbook workshop, represented by a glowing laptop and signal rings"
+          />
+        </div>
+      </section>
+
+      <!-- =========================== How we pick ======================== -->
+      <section class="section features">
+        <div class="wrap split reverse">
+          <div>
+            <h2>How we choose what to sell</h2>
+            <p>
+              Every model on the shelf has to pass three checks: it has to be
+              repairable, it has to hold its battery health past two years, and
+              our own technicians have to be happy using it daily.
+            </p>
+            <p>
+              If a manufacturer glues the battery in or blocks part swaps, we
+              don't stock it - no matter how well it sells elsewhere.
+            </p>
+          </div>
+          <img
+            src="assets/img/laptop-studio-640.jpg"
+            srcset="
+              assets/img/laptop-studio-320.jpg 320w,
+              assets/img/laptop-studio-640.jpg 640w
+            "
+            sizes="(max-width: 900px) 100vw, 50vw"
+            width="640"
+            height="640"
+            alt="A Voltbook Studio laptop shown against a light background"
+          />
+        </div>
+      </section>
+
+      <!-- ===================== Decorative pattern band ================== -->
+      <!--
+        The background image here is decorative, so it lives in CSS, not HTML.
+        A media query swaps pattern-900.jpg for pattern-1800.jpg above 900px,
+        so phones never download the large file.
+      -->
+      <section class="section pattern-band">
+        <div class="wrap">
+          <h2 class="section-title">Voltbook today</h2>
+          <p class="section-intro">
+            Still small, still run by people who fix laptops for a living.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong>12k+</strong>
+              <span>laptops set up and shipped</span>
+            </div>
+            <div class="stat">
+              <strong>2.3%</strong>
+              <span>returned within the first year</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>walk-in repair centres</span>
+            </div>
+            <div class="stat">
+              <strong>20 min</strong>
+              <span>average support reply time</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============================== Team =========================== -->
+      <section class="section">
+        <div class="wrap">
+          <h2 class="section-title">The people you'll actually talk to</h2>
+          <p class="section-intro">
+            No call centre. Four of us, and we all still work the repair bench.
+          </p>
+
+          <div class="team">
+            <figure class="member">
+              <img
+                src="assets/img/team-1-400.jpg"
+                srcset="assets/img/team-1-200.jpg 200w, assets/img/team-1-400.jpg 400w"
+                sizes="140px"
+                width="400"
+                height="400"
+                alt="Portrait of Irene Kovalenko"
+              />
+              <figcaption>
+                <h3>Irene Kovalenko</h3>
+                <span>Head of Curation</span>
+                <p>Decides which machines earn a place on the shelf.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="member">
+              <img
+                src="assets/img/team-2-400.jpg"
+                srcset="assets/img/team-2-200.jpg 200w, assets/img/team-2-400.jpg 400w"
+                sizes="140px"
+                width="400"
+                height="400"
+                alt="Portrait of Bushra Sheeraz"
+              />
+              <figcaption>
+                <h3>Bushra Sheeraz</h3>
+                <span>Customer Support Lead</span>
+                <p>The 20-minute reply time is basically her doing.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="member">
+              <img
+                src="assets/img/team-3-400.jpg"
+                srcset="assets/img/team-3-200.jpg 200w, assets/img/team-3-400.jpg 400w"
+                sizes="140px"
+                width="400"
+                height="400"
+                alt="Portrait of Minh Nguyen"
+              />
+              <figcaption>
+                <h3>Minh Nguyen</h3>
+                <span>Systems &amp; Setup</span>
+                <p>Tunes every Voltbook before it leaves the workshop.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================== Call to action ===================== -->
+      <section class="cta">
+        <div class="wrap">
+          <div>
+            <h2>Questions before you buy?</h2>
+            <p>Ask us anything - we'd rather you got the right machine.</p>
+          </div>
+          <a href="contact.html" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================ Shared footer ====================== -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <a href="index.html" class="logo">Volt<span>book</span></a>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="social">
+          <a href="#" aria-label="Voltbook on X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Voltbook on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Voltbook on YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <p class="footer-copy">Copyright &copy; 2026 Voltbook. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
