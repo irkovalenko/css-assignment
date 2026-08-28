@@ -1,277 +1,841 @@
+/* =========================================================================
+   Voltbook - shared stylesheet
+   Assignment constraints: vanilla CSS, Flexbox only (NO Grid), media queries,
+   CSS-only burger menu, imported Roboto font.
+   ========================================================================= */
+
+/* Import the required Roboto font (must be the first rule in the file). */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,300&display=swap");
+
+/* ----------------------------- Design tokens ----------------------------- */
 :root {
   --max-width: 1100px;
-  --blue: #3882f6;
-  --text-dark: #1b1b1b;
-  --text-light: #f9faf8;
-  --bg-light: #f9faf8;
-  --bg-dark: #1f2937;
-  --border: #e2e2e0;
+
+  /* Colours - taken straight from the client's style sheet */
+  --blue: #3882f6;          /* buttons + call-to-action background */
+  --blue-dark: #1c64d8;     /* hover state */
+  --bg-dark: #1f2937;       /* hero + footer background */
+  --bg-light: #f9faf8;      /* light page background */
+  --quote-bg: #e5e7eb;      /* quote section background */
+  --text-on-dark: #f9faf8;  /* hero heading, header logo */
+  --text-muted-dark: #e5e7eb;/* hero sub-text, header links */
+  --heading: #1f2937;       /* section headings on light background */
+  --body: #374151;          /* normal paragraph text */
+  --border: #d7dbe0;
+
+  /* Type scale. Desktop values match the client's spec (48 / 36 / 24 / 18);
+     clamp() lets them shrink on small screens so nothing overflows. */
+  --fs-hero: clamp(2rem, 4.5vw + 1rem, 3rem);       /* 32 -> 48px */
+  --fs-section: clamp(1.75rem, 3vw + 1rem, 2.25rem); /* 28 -> 36px */
+  --fs-quote: clamp(1.4rem, 2.4vw + 0.8rem, 2.25rem);/* ~22 -> 36px */
+  --fs-logo: 1.5rem;   /* 24px */
+  --fs-lead: 1.125rem; /* 18px */
+
+  --space: 24px;
+  --radius: 10px;
 }
 
+/* --------------------------------- Reset -------------------------------- */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* padding/border count inside the declared size */
   margin: 0;
   padding: 0;
 }
-/*
-  padding and border are included inside 
-  an element's declared width/height, instead of adding to it */
 
-body {
-  font-family: Roboto, sans-serif;
-  color: var(--text-dark);
-  line-height: 1.5;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Shared class */
-.wrap {
-  max-width: var(--max-width);
-  margin: 0 auto; /* auto centers left/right margins */
-  padding: 0 24px;
+body {
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  color: var(--body);
+  background: var(--bg-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-} /* strips underline for links */
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
-} /* so there is no dot in nav */
+}
+
 img {
   max-width: 100%;
+  height: auto;      /* keep aspect ratio when width is constrained */
   display: block;
 }
 
-/* ---------- Header ---------- */
-
-header,
-footer,
-.hero {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-}
-
-header .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 72px;
-}
-
-header .logo {
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-header nav ul {
-  display: flex;
-  gap: 32px;
-}
-
-header nav a {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-light);
-}
-
-header nav a:hover {
-  color: var(--blue);
-}
-
-/* ---------- Hero ---------- */
-
-.hero .wrap {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  padding-top: 64px;
-  padding-bottom: 64px;
-}
-
-.hero-image {
-  flex: 1;
-  aspect-ratio: 4 / 3; /* prevents collapse to 0 */
-  background: linear-gradient(135deg, var(--blue), #74c69d);
-  border-radius: 12px;
-}
-
-.hero-text h1 {
-  font-size: 2.4rem;
+h1,
+h2,
+h3 {
+  color: var(--heading);
   line-height: 1.15;
-  margin-bottom: 16px;
-  color: var(--text-light);
 }
 
-.hero-text p {
-  color: var(--text-light);
-  margin-bottom: 24px;
+/* ------------------------------ Utilities ------------------------------- */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;          /* centres the content column */
+  padding: 0 var(--space);
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section-title {
+  font-size: var(--fs-section);
+  font-weight: 800;         /* "extra-bold" from the spec */
+  text-align: center;
+  color: var(--heading);
+}
+
+.section-title + .section-intro {
+  max-width: 620px;
+  margin: 12px auto 0;
+  text-align: center;
 }
 
 .btn {
   display: inline-block;
   background: var(--blue);
   color: #fff;
-  padding: 12px 28px;
-  border-radius: 8px;
+  font: inherit;
   font-weight: 600;
-  border: none;
-  cursor: pointer; /* on the rest it is arrow */
+  padding: 12px 30px;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn:hover {
-  opacity: 0.9;
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
 }
 
-/* ---------- Info section ---------- */
-.info {
-  background: var(--bg-light);
-  padding: 64px 0;
-}
-
-.info .wrap > h2 {
-  /* h2 is direct child of a wrap */
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.boxes {
-  display: flex;
-  gap: 24px;
-}
-
-.box {
-  flex: 1;
-  background: #fff;
-  border: 1px solid var(--blue);
-  border-radius: 10px;
-  padding: 24px;
-}
-
-.box .item {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.box p {
-  color: var(--text-dark);
-  font-size: 0.95rem;
-}
-
-/* ---------- Quote ---------- */
-.quote {
-  padding: 72px 0;
-  text-align: center;
-  background-color: #e5e7eb;
-  margin-top: 48px;
-}
-
-.quote .wrap {
-  max-width: 700px;
-}
-
-.quote blockquote {
-  font-size: 1.5rem;
-  font-style: italic;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-}
-
-.quote cite {
-  font-style: normal;
-  color: var(--text-dark);
-  font-size: 0.9rem;
-}
-
-/* ---------- Call to action ---------- */
-.cta {
-  background: var(--blue);
+.btn--ghost {
+  background: transparent;
+  border-color: #fff;
   color: #fff;
-  padding: 56px 0;
-  text-align: center;
-  margin-top: 48px;
 }
 
-.cta h2 {
-  font-size: 1.7rem;
-  margin-bottom: 12px;
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
 }
 
-.cta p {
-  margin-bottom: 24px;
-  opacity: 0.9;
+/* =============================== Header ================================= */
+.site-header {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
 }
 
-.cta .btn {
-  color: var(--text-light);
-}
-
-/* ---------- Footer ---------- */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 0;
-  margin-top: 48px;
-}
-
-footer {
+.site-header .wrap {
   display: flex;
-  justify-content: center;
-  color: var(--text-light);
-  font-size: 0.9rem;
-  margin-top: 48px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  position: relative;
 }
 
-.hamburger {
-  display: none;
-  font-size: 1.6rem;
-  color: var(--text-light);
+.logo {
+  font-size: var(--fs-logo);   /* 24px */
+  font-weight: 700;
+  color: var(--text-on-dark);
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 36px;
+}
+
+.main-nav a {
+  font-size: var(--fs-lead);   /* 18px */
+  color: var(--text-muted-dark);
+  padding: 6px 0;
+  transition: color 0.15s ease;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+  color: #fff;
+  border-bottom: 2px solid var(--blue);
+}
+
+/* ---- CSS-only burger menu (checkbox technique, no JavaScript) ----
+   A hidden <input type="checkbox"> holds the open/closed state. The <label>
+   is the visible button; clicking it flips the checkbox, and the sibling
+   selector `.nav-checkbox:checked ~ .main-nav` opens the panel. */
+.nav-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;              /* invisible but still keyboard-focusable */
+  pointer-events: none;
+}
+
+.nav-toggle {
+  display: none;           /* hidden on desktop, shown in the media query */
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
   cursor: pointer;
 }
 
-.close-menu {
-  display: none;
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--text-on-dark);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
-@media (max-width: 700px) {
-  .hamburger {
-    display: block;
+/* Keyboard focus ring on the label */
+.nav-checkbox:focus-visible ~ .nav-toggle {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* =============================== Footer ================================= */
+.site-footer {
+  background: var(--bg-dark);
+  color: var(--text-muted-dark);
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.site-footer .logo {
+  font-size: 1.25rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.social {
+  display: flex;
+  gap: 18px;
+  font-size: 1.2rem;
+}
+
+.social a:hover {
+  color: var(--blue);
+}
+
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(249, 250, 248, 0.6);
+}
+
+/* ================================ Hero ================================= */
+.hero {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+}
+
+.hero .wrap {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding-top: 72px;
+  padding-bottom: 88px;
+}
+
+.hero-text {
+  flex: 1 1 46%;
+  min-width: 0;   /* lets the flex item shrink instead of overflowing */
+}
+
+.hero-text h1 {
+  font-size: var(--fs-hero);   /* 48px on desktop */
+  font-weight: 800;            /* extra-bold */
+  color: var(--text-on-dark);
+  margin-bottom: 16px;
+}
+
+.hero-text p {
+  font-size: var(--fs-lead);   /* 18px */
+  font-weight: 400;
+  color: var(--text-muted-dark);
+  margin-bottom: 28px;
+  max-width: 46ch;
+}
+
+.hero-media {
+  flex: 1 1 54%;
+  min-width: 0;
+}
+
+.hero-media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* ============================ Features / info ========================== */
+.features {
+  background: #fff;
+}
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.feature {
+  flex: 1 1 200px;
+  background: #fff;
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.feature i {
+  font-size: 1.8rem;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  font-size: 0.95rem;
+}
+
+/* =============================== Quote ================================= */
+.quote {
+  background: var(--quote-bg);
+  padding: 80px 0;
+}
+
+.quote .wrap {
+  max-width: 760px;
+  text-align: center;
+}
+
+.quote blockquote {
+  font-size: var(--fs-quote);  /* 36px on desktop */
+  font-weight: 300;            /* light */
+  font-style: italic;
+  color: var(--heading);
+}
+
+.quote cite {
+  display: block;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+/* ========================== Call to action =========================== */
+/* Contained blue band with whitespace around it, like the client design. */
+.cta {
+  background: var(--bg-light);
+  padding: 0 var(--space);
+}
+
+.cta .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: var(--max-width);
+  padding: 48px 44px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 12px;
+  margin: 64px auto;
+}
+
+.cta h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.cta p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===================== About page specific ========================== */
+.page-hero {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 64px 0;
+}
+
+.page-hero h1 {
+  font-size: var(--fs-hero);
+  font-weight: 800;
+  color: var(--text-on-dark);
+}
+
+.page-hero p {
+  font-size: var(--fs-lead);
+  color: var(--text-muted-dark);
+  max-width: 60ch;
+  margin: 14px auto 0;
+}
+
+.split {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+.split.reverse {
+  flex-direction: row-reverse;
+}
+
+.split > * {
+  flex: 1 1 0;
+  min-width: 0;   /* without this the image keeps its intrinsic width */
+}
+
+.split img {
+  width: 100%;
+  aspect-ratio: 3 / 2;   /* keeps both story images the same shape */
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.split h2 {
+  font-size: var(--fs-section);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.split p + p {
+  margin-top: 14px;
+}
+
+/* Decorative band - background image is swapped by a media query below */
+.pattern-band {
+  background-color: var(--bg-dark);
+  /* dark wash over the decorative pattern so text stays readable */
+  background-image: linear-gradient(
+      rgba(17, 24, 34, 0.86),
+      rgba(17, 24, 34, 0.86)
+    ),
+    url("assets/img/pattern-900.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-on-dark);
+  text-align: center;
+}
+
+.pattern-band .section-title {
+  color: #fff;
+}
+
+.pattern-band .section-intro {
+  color: var(--text-muted-dark);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.stat {
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 240px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  padding: 26px 18px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat span {
+  font-size: 0.95rem;
+  color: var(--text-muted-dark);
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 44px;
+}
+
+.member {
+  flex: 1 1 220px;
+  max-width: 260px;
+  text-align: center;
+}
+
+.member img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 14px;
+  border: 3px solid var(--blue);
+}
+
+.member h3 {
+  font-size: 1.05rem;
+}
+
+.member span {
+  font-size: 0.9rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.member p {
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* ===================== Products page specific ======================= */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.card {
+  flex: 1 1 240px;
+  min-width: 0;
+  max-width: 320px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(31, 41, 55, 0.12);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--quote-bg);
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+}
+
+.card-body .price {
+  font-weight: 800;
+  color: var(--blue);
+  font-size: 1.15rem;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.card-body .btn {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.spec-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.spec-row span {
+  background: var(--quote-bg);
+  color: var(--heading);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* ===================== Contact page specific ======================= */
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+
+.contact-info {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  flex-basis: 100%;   /* heading always sits on its own row */
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-info i {
+  color: var(--blue);
+  font-size: 1.2rem;
+  margin-top: 3px;
+}
+
+.contact-form {
+  flex: 2 1 360px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  gap: 6px;
+}
+
+.field.half {
+  flex: 1 1 45%;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--body);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--blue);
+  border-color: var(--blue);
+}
+
+.field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form .btn {
+  flex: 1 1 100%;
+}
+
+/* ========================================================================
+   RESPONSIVE  -  Flexbox layouts reflow, nav becomes a burger menu
+   ======================================================================== */
+
+/* -------- Tablet and below: burger menu + single-column heroes -------- */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;   /* show the burger button */
   }
 
-  header .wrap {
-    position: relative;
-  }
-
-  header nav {
+  /* Collapsible panel that drops down below the header bar */
+  .main-nav {
     position: absolute;
-    top: 72px;
+    top: 100%;
     left: 0;
     width: 100%;
     background: var(--bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    z-index: 10;
+    z-index: 20;
   }
 
-  header nav#menu:target {
-    max-height: 300px;
+  /* Checkbox checked -> panel opens (pure CSS, sibling selector) */
+  .nav-checkbox:checked ~ .main-nav {
+    max-height: 320px;
   }
 
-  header nav ul {
+  /* Burger morphs into an X while the menu is open */
+  .nav-checkbox:checked ~ .nav-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-checkbox:checked ~ .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-checkbox:checked ~ .nav-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .main-nav ul {
     flex-direction: column;
     gap: 0;
   }
 
-  header nav ul li {
-    padding: 16px 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  .main-nav li {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .close-menu {
+  .main-nav li:first-child {
+    border-top: 0;
+  }
+
+  .main-nav a {
     display: block;
-    text-align: right;
-    padding: 16px 24px 0;
-    font-size: 1.3rem;
-    color: var(--text-light);
+    padding: 16px var(--space);
+  }
+
+  .main-nav a:hover,
+  .main-nav a[aria-current="page"] {
+    border-bottom: 0;
+    background: rgba(56, 130, 246, 0.16);
+    color: #fff;
+  }
+
+  /* Heroes and split sections stack vertically */
+  .hero .wrap,
+  .split,
+  .split.reverse {
+    flex-direction: column;
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .hero-text,
+  .hero-media {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .hero-text p {
+    max-width: none;
+  }
+
+  /* feature cards go to a tidy 2 x 2 instead of 3 + 1 */
+  .feature {
+    flex: 1 1 260px;
+  }
+
+  .cta .wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Larger decorative background only for wider screens (saves mobile data) */
+@media (min-width: 901px) {
+  .pattern-band {
+    background-image: linear-gradient(
+        rgba(17, 24, 34, 0.86),
+        rgba(17, 24, 34, 0.86)
+      ),
+      url("assets/img/pattern-1800.jpg");
+  }
+}
+
+/* -------------------- Phones: one column, tighter -------------------- */
+@media (max-width: 600px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .feature-list {
+    flex-direction: column;
+  }
+
+  .feature,
+  .card,
+  .member,
+  .stat {
+    max-width: none;
+  }
+
+  .field.half {
+    flex: 1 1 100%;
+  }
+
+  .site-footer .wrap {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-links,
+  .social {
+    justify-content: center;
   }
 }
