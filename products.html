@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Voltbook range: four laptops for developers, designers and students, each with a 3-year warranty."
+    />
+    <title>Voltbook laptops - the full range</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ============================ Shared header ======================== -->
+    <header class="site-header">
+      <div class="wrap">
+        <a href="index.html" class="logo">Volt<span>book</span></a>
+
+        <!-- CSS-only burger menu: the checkbox holds the open/closed state -->
+        <input type="checkbox" id="nav-toggle" class="nav-checkbox" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </label>
+
+        <nav class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" aria-current="page">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================= Page hero ======================== -->
+      <section class="page-hero">
+        <div class="wrap">
+          <h1>Four laptops. All of them good.</h1>
+          <p>
+            We keep the range small on purpose. Every model below is one our own
+            technicians are happy to use every day.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================ Product grid ====================== -->
+      <section class="section">
+        <div class="wrap">
+          <h2 class="section-title">The Voltbook range</h2>
+          <p class="section-intro">
+            Prices include setup, a 3-year warranty and free next-day delivery.
+          </p>
+
+          <div class="product-list">
+            <article class="card">
+              <img
+                src="assets/img/laptop-pro-640.jpg"
+                srcset="assets/img/laptop-pro-320.jpg 320w, assets/img/laptop-pro-640.jpg 640w"
+                sizes="(max-width: 600px) 90vw, 300px"
+                width="640"
+                height="640"
+                alt="Voltbook 14-inch Pro laptop"
+              />
+              <div class="card-body">
+                <h3>Voltbook 14" Pro</h3>
+                <p class="price">&euro;1,290</p>
+                <div class="spec-row">
+                  <span>8-core CPU</span><span>32 GB RAM</span><span>1 TB SSD</span>
+                </div>
+                <p>The all-rounder. Enough power for local builds, docker and a
+                  dozen browser tabs without the fans spinning up.</p>
+                <a href="contact.html" class="btn">View details</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="assets/img/laptop-air-640.jpg"
+                srcset="assets/img/laptop-air-320.jpg 320w, assets/img/laptop-air-640.jpg 640w"
+                sizes="(max-width: 600px) 90vw, 300px"
+                width="640"
+                height="640"
+                alt="Voltbook 13-inch Air laptop"
+              />
+              <div class="card-body">
+                <h3>Voltbook 13" Air</h3>
+                <p class="price">&euro;940</p>
+                <div class="spec-row">
+                  <span>Fanless</span><span>16 GB RAM</span><span>512 GB SSD</span>
+                </div>
+                <p>1.1 kg and silent. Built for students and anyone who writes
+                  more than they render. 18-hour battery.</p>
+                <a href="contact.html" class="btn">View details</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="assets/img/laptop-studio-640.jpg"
+                srcset="assets/img/laptop-studio-320.jpg 320w, assets/img/laptop-studio-640.jpg 640w"
+                sizes="(max-width: 600px) 90vw, 300px"
+                width="640"
+                height="640"
+                alt="Voltbook 16-inch Studio laptop"
+              />
+              <div class="card-body">
+                <h3>Voltbook 16" Studio</h3>
+                <p class="price">&euro;1,880</p>
+                <div class="spec-row">
+                  <span>12-core CPU</span><span>64 GB RAM</span><span>2 TB SSD</span>
+                </div>
+                <p>For video, 3D and heavy timelines. Colour-calibrated 16"
+                  display and a cooling system that stays quiet under load.</p>
+                <a href="contact.html" class="btn">View details</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="assets/img/laptop-go-640.jpg"
+                srcset="assets/img/laptop-go-320.jpg 320w, assets/img/laptop-go-640.jpg 640w"
+                sizes="(max-width: 600px) 90vw, 300px"
+                width="640"
+                height="640"
+                alt="Voltbook 12-inch Go laptop"
+              />
+              <div class="card-body">
+                <h3>Voltbook 12" Go</h3>
+                <p class="price">&euro;690</p>
+                <div class="spec-row">
+                  <span>Compact</span><span>8 GB RAM</span><span>256 GB SSD</span>
+                </div>
+                <p>The travel machine. Small, cheap to replace, and tough enough
+                  to live in a backpack.</p>
+                <a href="contact.html" class="btn">View details</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= What's included ===================== -->
+      <section class="section features">
+        <div class="wrap">
+          <h2 class="section-title">Every order includes</h2>
+          <div class="feature-list">
+            <article class="feature">
+              <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+              <h3>Free setup</h3>
+              <p>Updates, drivers and your accounts ready before it ships.</p>
+            </article>
+            <article class="feature">
+              <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+              <h3>Next-day delivery</h3>
+              <p>Order before 4pm and it's with you the following day.</p>
+            </article>
+            <article class="feature">
+              <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+              <h3>30-day returns</h3>
+              <p>Changed your mind? Send it back, no restocking fee.</p>
+            </article>
+            <article class="feature">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              <h3>3-year warranty</h3>
+              <p>Covered for parts and labour at any Voltbook repair centre.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================== Call to action ===================== -->
+      <section class="cta">
+        <div class="wrap">
+          <div>
+            <h2>Not sure which one?</h2>
+            <p>Tell us what you do with a laptop and we'll point you at one.</p>
+          </div>
+          <a href="contact.html" class="btn btn--ghost">Ask a technician</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================ Shared footer ====================== -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <a href="index.html" class="logo">Volt<span>book</span></a>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="social">
+          <a href="#" aria-label="Voltbook on X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Voltbook on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Voltbook on YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <p class="footer-copy">Copyright &copy; 2026 Voltbook. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
