@@ -112,7 +112,6 @@ We switched to the **checkbox technique**:
 The checkbox keeps its own state, so there is no scroll jump, and clicking the
 burger a second time closes the menu.
 
-<<<<<<< HEAD
 ## Where we used AI (Think → Try → Ask AI → Understand → Test → Accept/Modify/Reject)
 
 1. **Ideation.** After picking "laptop shop", we asked AI to expand the concept
@@ -140,7 +139,6 @@ Tested at 375px (mobile), 768px (tablet) and 1200px+ (desktop):
   spacing tightens.
 - No element overflows horizontally at any width; images are capped with
   `max-width: 100%` and `object-fit: cover` so they never stretch.
->>>>>>> 1e12fd71b5fb230d4a6ac85e937922bbb7f4776f
 
 ## Team
 
