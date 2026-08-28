@@ -3,82 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Voltbook sells premium laptops for creators, developers and students - fast machines, fair prices and a 3-year warranty."
+    />
+    <title>Voltbook - Laptops that keep up with you</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="styles.css" />
-    <title>Company</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
-    <header>
+    <!-- ============================ Shared header ======================== -->
+    <header class="site-header">
       <div class="wrap">
-        <div class="logo">Company</div>
-        <a href="#menu" class="hamburger">☰</a>
-        <!-- target for smaller screens-->
-        <nav id="menu">
-          <a href="#" class="close-menu" aria-label="Close menu">✕</a>
+        <a href="index.html" class="logo">Volt<span>book</span></a>
+
+        <!-- CSS-only burger menu: the checkbox holds the open/closed state -->
+        <input type="checkbox" id="nav-toggle" class="nav-checkbox" />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </label>
+
+        <nav class="main-nav" aria-label="Main">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main">
+      <!-- ================================ Hero ========================== -->
       <section class="hero">
         <div class="wrap">
           <div class="hero-text">
-            <h1>This website is awesome</h1>
+            <h1>Laptops that keep up with you</h1>
             <p>
-              Some short supporting text that explains what you do and why it
-              matters, in one or two sentences.
+              Hand-picked machines for people who actually use them - developers,
+              designers and students. Every Voltbook ships tuned, updated and
+              covered by a 3-year warranty.
             </p>
-            <button class="btn">Sign up</button>
+            <a href="products.html" class="btn">Shop laptops</a>
           </div>
-          <div class="hero-image"></div>
+
+          <!--
+            Responsive hero image.
+            <picture> = art direction: phones get a taller, tighter crop so the
+            laptop stays large; wider screens get the 16:9 shot next to the text.
+            srcset + sizes inside each source = the browser still downloads the
+            resolution that fits the device (including retina screens).
+          -->
+          <picture class="hero-media">
+            <source
+              media="(max-width: 700px)"
+              srcset="
+                assets/img/hero-mobile-600.jpg 600w,
+                assets/img/hero-mobile-900.jpg 900w
+              "
+              sizes="100vw"
+            />
+            <img
+              src="assets/img/hero-1200.jpg"
+              srcset="
+                assets/img/hero-800.jpg   800w,
+                assets/img/hero-1200.jpg 1200w,
+                assets/img/hero-1600.jpg 1600w
+              "
+              sizes="(max-width: 900px) 100vw, 50vw"
+              width="1200"
+              height="675"
+              alt="A Voltbook laptop glowing at the centre of concentric signal rings"
+            />
+          </picture>
         </div>
       </section>
 
-      <section class="info">
+      <!-- ============================== Features ======================== -->
+      <section class="section features">
         <div class="wrap">
-          <h2>Some random info</h2>
-          <div class="boxes">
-            <div class="box">
-              <div class="item">Item 1</div>
-              <p>Small description of the first feature or benefit.</p>
-            </div>
-            <div class="box">
-              <div class="item">Item 2</div>
-              <p>Small description of the second feature or benefit.</p>
-            </div>
-            <div class="box">
-              <div class="item">Item 3</div>
-              <p>Small description of the third feature or benefit.</p>
-            </div>
+          <h2 class="section-title">Why people buy from Voltbook</h2>
+          <p class="section-intro">
+            No mystery bundles, no bloatware, no upsells at the counter.
+          </p>
+
+          <div class="feature-list">
+            <article class="feature">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              <h3>Tuned on arrival</h3>
+              <p>Firmware, drivers and battery settings dialled in before we ship.</p>
+            </article>
+            <article class="feature">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              <h3>3-year warranty</h3>
+              <p>Parts and labour included, with local walk-in repair centres.</p>
+            </article>
+            <article class="feature">
+              <i class="fa-solid fa-recycle" aria-hidden="true"></i>
+              <h3>Trade-in credit</h3>
+              <p>Send us your old machine and knock the value off your new one.</p>
+            </article>
+            <article class="feature">
+              <i class="fa-solid fa-headset" aria-hidden="true"></i>
+              <h3>Real support</h3>
+              <p>Talk to a technician, not a script. Average reply time: 20 minutes.</p>
+            </article>
           </div>
         </div>
       </section>
 
+      <!-- =============================== Quote ========================== -->
       <section class="quote">
         <div class="wrap">
           <blockquote>
-            "This is a placeholder quote that speaks to the value of the
-            product."
+            "I ordered on a Tuesday, it arrived Thursday already set up for my
+            workflow. Two years later it still runs like the day I opened the box."
           </blockquote>
-          <cite>— Someone, Somewhere</cite>
+          <cite>- Mara Jensen, motion designer</cite>
         </div>
       </section>
 
+      <!-- ========================== Call to action ===================== -->
       <section class="cta">
         <div class="wrap">
-          <h2>Ready to get started?</h2>
-          <p>Join today and see what it's about.</p>
-          <button class="btn">Get started</button>
+          <div>
+            <h2>Ready to upgrade? It's time.</h2>
+            <p>Build your Voltbook and get free next-day delivery this week.</p>
+          </div>
+          <a href="products.html" class="btn btn--ghost">Start building</a>
         </div>
       </section>
     </main>
 
-    <footer>
-      <p>Copyright &copy;</p>
+    <!-- ============================ Shared footer ====================== -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <a href="index.html" class="logo">Volt<span>book</span></a>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="social">
+          <a href="#" aria-label="Voltbook on X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Voltbook on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Voltbook on YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <p class="footer-copy">Copyright &copy; 2026 Voltbook. All rights reserved.</p>
+      </div>
     </footer>
   </body>
 </html>
