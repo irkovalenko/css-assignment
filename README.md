@@ -1,5 +1,7 @@
 # Voltbook — responsive client website
 
+Preview here: https://irkovalenko.github.io/css-assignment/
+
 CSS group assignment — responsive client website.
 
 **Voltbook** is our imaginary company: a small laptop shop that grew out of a
