@@ -1,34 +1,23 @@
-/* =========================================================================
-   Voltbook - shared stylesheet
-   Assignment constraints: vanilla CSS, Flexbox only (NO Grid), media queries,
-   CSS-only burger menu, imported Roboto font.
-   ========================================================================= */
-
-/* Import the required Roboto font (must be the first rule in the file). */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,300&display=swap");
 
-/* ----------------------------- Design tokens ----------------------------- */
 :root {
   --max-width: 1100px;
 
-  /* Colours - taken straight from the client's style sheet */
-  --blue: #3882f6;          /* buttons + call-to-action background */
-  --blue-dark: #1c64d8;     /* hover state */
-  --bg-dark: #1f2937;       /* hero + footer background */
-  --bg-light: #f9faf8;      /* light page background */
-  --quote-bg: #e5e7eb;      /* quote section background */
-  --text-on-dark: #f9faf8;  /* hero heading, header logo */
-  --text-muted-dark: #e5e7eb;/* hero sub-text, header links */
-  --heading: #1f2937;       /* section headings on light background */
-  --body: #374151;          /* normal paragraph text */
+  --blue: #3882f6; /* buttons + call-to-action background */
+  --blue-dark: #1c64d8; /* hover state */
+  --bg-dark: #1f2937; /* hero + footer background */
+  --bg-light: #f9faf8; /* light page background */
+  --quote-bg: #e5e7eb; /* quote section background */
+  --text-on-dark: #f9faf8; /* hero heading, header logo */
+  --text-muted-dark: #e5e7eb; /* hero sub-text, header links */
+  --heading: #1f2937; /* section headings on light background */
+  --body: #374151; /* normal paragraph text */
   --border: #d7dbe0;
 
-  /* Type scale. Desktop values match the client's spec (48 / 36 / 24 / 18);
-     clamp() lets them shrink on small screens so nothing overflows. */
-  --fs-hero: clamp(2rem, 4.5vw + 1rem, 3rem);       /* 32 -> 48px */
+  --fs-hero: clamp(2rem, 4.5vw + 1rem, 3rem); /* 32 -> 48px */
   --fs-section: clamp(1.75rem, 3vw + 1rem, 2.25rem); /* 28 -> 36px */
-  --fs-quote: clamp(1.4rem, 2.4vw + 0.8rem, 2.25rem);/* ~22 -> 36px */
-  --fs-logo: 1.5rem;   /* 24px */
+  --fs-quote: clamp(1.4rem, 2.4vw + 0.8rem, 2.25rem); /* ~22 -> 36px */
+  --fs-logo: 1.5rem; /* 24px */
   --fs-lead: 1.125rem; /* 18px */
 
   --space: 24px;
@@ -37,7 +26,7 @@
 
 /* --------------------------------- Reset -------------------------------- */
 * {
-  box-sizing: border-box; /* padding/border count inside the declared size */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -66,7 +55,7 @@ ul {
 
 img {
   max-width: 100%;
-  height: auto;      /* keep aspect ratio when width is constrained */
+  height: auto;
   display: block;
 }
 
@@ -80,7 +69,7 @@ h3 {
 /* ------------------------------ Utilities ------------------------------- */
 .wrap {
   max-width: var(--max-width);
-  margin: 0 auto;          /* centres the content column */
+  margin: 0 auto;
   padding: 0 var(--space);
 }
 
@@ -90,7 +79,7 @@ h3 {
 
 .section-title {
   font-size: var(--fs-section);
-  font-weight: 800;         /* "extra-bold" from the spec */
+  font-weight: 800;
   text-align: center;
   color: var(--heading);
 }
@@ -111,7 +100,9 @@ h3 {
   border: 2px solid var(--blue);
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .btn:hover {
@@ -145,7 +136,7 @@ h3 {
 }
 
 .logo {
-  font-size: var(--fs-logo);   /* 24px */
+  font-size: var(--fs-logo); /* 24px */
   font-weight: 700;
   color: var(--text-on-dark);
 }
@@ -160,7 +151,7 @@ h3 {
 }
 
 .main-nav a {
-  font-size: var(--fs-lead);   /* 18px */
+  font-size: var(--fs-lead); /* 18px */
   color: var(--text-muted-dark);
   padding: 6px 0;
   transition: color 0.15s ease;
@@ -172,20 +163,16 @@ h3 {
   border-bottom: 2px solid var(--blue);
 }
 
-/* ---- CSS-only burger menu (checkbox technique, no JavaScript) ----
-   A hidden <input type="checkbox"> holds the open/closed state. The <label>
-   is the visible button; clicking it flips the checkbox, and the sibling
-   selector `.nav-checkbox:checked ~ .main-nav` opens the panel. */
 .nav-checkbox {
   position: absolute;
   width: 1px;
   height: 1px;
-  opacity: 0;              /* invisible but still keyboard-focusable */
+  opacity: 0;
   pointer-events: none;
 }
 
 .nav-toggle {
-  display: none;           /* hidden on desktop, shown in the media query */
+  display: none;
   width: 44px;
   height: 44px;
   padding: 11px;
@@ -201,7 +188,9 @@ h3 {
   width: 100%;
   background: var(--text-on-dark);
   border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
 }
 
 /* Keyboard focus ring on the label */
@@ -276,18 +265,18 @@ h3 {
 
 .hero-text {
   flex: 1 1 46%;
-  min-width: 0;   /* lets the flex item shrink instead of overflowing */
+  min-width: 0;
 }
 
 .hero-text h1 {
-  font-size: var(--fs-hero);   /* 48px on desktop */
-  font-weight: 800;            /* extra-bold */
+  font-size: var(--fs-hero); /* 48px on desktop */
+  font-weight: 800; /* extra-bold */
   color: var(--text-on-dark);
   margin-bottom: 16px;
 }
 
 .hero-text p {
-  font-size: var(--fs-lead);   /* 18px */
+  font-size: var(--fs-lead); /* 18px */
   font-weight: 400;
   color: var(--text-muted-dark);
   margin-bottom: 28px;
@@ -353,8 +342,8 @@ h3 {
 }
 
 .quote blockquote {
-  font-size: var(--fs-quote);  /* 36px on desktop */
-  font-weight: 300;            /* light */
+  font-size: var(--fs-quote); /* 36px on desktop */
+  font-weight: 300; /* light */
   font-style: italic;
   color: var(--heading);
 }
@@ -369,7 +358,6 @@ h3 {
 }
 
 /* ========================== Call to action =========================== */
-/* Contained blue band with whitespace around it, like the client design. */
 .cta {
   background: var(--bg-light);
   padding: 0 var(--space);
@@ -431,12 +419,12 @@ h3 {
 
 .split > * {
   flex: 1 1 0;
-  min-width: 0;   /* without this the image keeps its intrinsic width */
+  min-width: 0;
 }
 
 .split img {
   width: 100%;
-  aspect-ratio: 3 / 2;   /* keeps both story images the same shape */
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--radius);
 }
@@ -451,14 +439,10 @@ h3 {
   margin-top: 14px;
 }
 
-/* Decorative band - background image is swapped by a media query below */
 .pattern-band {
   background-color: var(--bg-dark);
-  /* dark wash over the decorative pattern so text stays readable */
-  background-image: linear-gradient(
-      rgba(17, 24, 34, 0.86),
-      rgba(17, 24, 34, 0.86)
-    ),
+  background-image:
+    linear-gradient(rgba(17, 24, 34, 0.86), rgba(17, 24, 34, 0.86)),
     url("assets/img/pattern-900.jpg");
   background-size: cover;
   background-position: center;
@@ -560,7 +544,9 @@ h3 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .card:hover {
@@ -631,7 +617,7 @@ h3 {
 
 .contact-info h2,
 .contact-form h2 {
-  flex-basis: 100%;   /* heading always sits on its own row */
+  flex-basis: 100%; /* heading always sits on its own row */
   width: 100%;
   font-size: 1.5rem;
   font-weight: 700;
@@ -708,10 +694,9 @@ h3 {
 /* -------- Tablet and below: burger menu + single-column heroes -------- */
 @media (max-width: 900px) {
   .nav-toggle {
-    display: flex;   /* show the burger button */
+    display: flex;
   }
 
-  /* Collapsible panel that drops down below the header bar */
   .main-nav {
     position: absolute;
     top: 100%;
@@ -725,12 +710,10 @@ h3 {
     z-index: 20;
   }
 
-  /* Checkbox checked -> panel opens (pure CSS, sibling selector) */
   .nav-checkbox:checked ~ .main-nav {
     max-height: 320px;
   }
 
-  /* Burger morphs into an X while the menu is open */
   .nav-checkbox:checked ~ .nav-toggle span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
@@ -766,7 +749,6 @@ h3 {
     color: #fff;
   }
 
-  /* Heroes and split sections stack vertically */
   .hero .wrap,
   .split,
   .split.reverse {
@@ -785,7 +767,6 @@ h3 {
     max-width: none;
   }
 
-  /* feature cards go to a tidy 2 x 2 instead of 3 + 1 */
   .feature {
     flex: 1 1 260px;
   }
@@ -796,13 +777,10 @@ h3 {
   }
 }
 
-/* Larger decorative background only for wider screens (saves mobile data) */
 @media (min-width: 901px) {
   .pattern-band {
-    background-image: linear-gradient(
-        rgba(17, 24, 34, 0.86),
-        rgba(17, 24, 34, 0.86)
-      ),
+    background-image:
+      linear-gradient(rgba(17, 24, 34, 0.86), rgba(17, 24, 34, 0.86)),
       url("assets/img/pattern-1800.jpg");
   }
 }
