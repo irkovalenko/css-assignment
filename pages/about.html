@@ -11,27 +11,28 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
   </head>
   <body>
-    <!-- ============================ Shared header ======================== -->
     <header class="site-header">
       <div class="wrap">
-        <a href="index.html" class="logo">Volt<span>book</span></a>
-
-        <!-- CSS-only burger menu: the checkbox holds the open/closed state -->
+        <a href="../index.html" class="logo">Volt<span>book</span></a>
         <input type="checkbox" id="nav-toggle" class="nav-checkbox" />
-        <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+        <label
+          for="nav-toggle"
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+        >
           <span></span><span></span><span></span>
         </label>
 
         <nav class="main-nav" aria-label="Main">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html" aria-current="page">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -41,7 +42,6 @@
     </header>
 
     <main id="main">
-      <!-- ============================= Page hero ======================== -->
       <section class="page-hero">
         <div class="wrap">
           <h1>We started Voltbook because buying a laptop was awful</h1>
@@ -51,15 +51,14 @@
           </p>
         </div>
       </section>
-
-      <!-- ============================== Story =========================== -->
       <section class="section">
         <div class="wrap split">
           <div>
             <h2>From a repair bench to a shop</h2>
             <p>
-              Voltbook grew out of a small repair workshop. People kept asking the
-              same question while they waited: "what should I have bought instead?"
+              Voltbook grew out of a small repair workshop. People kept asking
+              the same question while they waited: "what should I have bought
+              instead?"
             </p>
             <p>
               So in 2021 we started stocking the handful of machines we actually
@@ -67,11 +66,11 @@
             </p>
           </div>
           <img
-            src="assets/img/hero-1200.jpg"
+            src="../assets/img/hero-1200.jpg"
             srcset="
-              assets/img/hero-800.jpg   800w,
-              assets/img/hero-1200.jpg 1200w,
-              assets/img/hero-1600.jpg 1600w
+              ../assets/img/hero-800.jpg   800w,
+              ../assets/img/hero-1200.jpg 1200w,
+              ../assets/img/hero-1600.jpg 1600w
             "
             sizes="(max-width: 900px) 100vw, 50vw"
             width="1200"
@@ -80,8 +79,6 @@
           />
         </div>
       </section>
-
-      <!-- =========================== How we pick ======================== -->
       <section class="section features">
         <div class="wrap split reverse">
           <div>
@@ -97,10 +94,10 @@
             </p>
           </div>
           <img
-            src="assets/img/laptop-studio-640.jpg"
+            src="../assets/img/laptop-studio-640.jpg"
             srcset="
-              assets/img/laptop-studio-320.jpg 320w,
-              assets/img/laptop-studio-640.jpg 640w
+              ../assets/img/laptop-studio-320.jpg 320w,
+              ../assets/img/laptop-studio-640.jpg 640w
             "
             sizes="(max-width: 900px) 100vw, 50vw"
             width="640"
@@ -109,13 +106,6 @@
           />
         </div>
       </section>
-
-      <!-- ===================== Decorative pattern band ================== -->
-      <!--
-        The background image here is decorative, so it lives in CSS, not HTML.
-        A media query swaps pattern-900.jpg for pattern-1800.jpg above 900px,
-        so phones never download the large file.
-      -->
       <section class="section pattern-band">
         <div class="wrap">
           <h2 class="section-title">Voltbook today</h2>
@@ -142,8 +132,6 @@
           </div>
         </div>
       </section>
-
-      <!-- =============================== Team =========================== -->
       <section class="section">
         <div class="wrap">
           <h2 class="section-title">The people you'll actually talk to</h2>
@@ -154,8 +142,11 @@
           <div class="team">
             <figure class="member">
               <img
-                src="assets/img/team-1-400.jpg"
-                srcset="assets/img/team-1-200.jpg 200w, assets/img/team-1-400.jpg 400w"
+                src="../assets/img/team-1-400.jpg"
+                srcset="
+                  ../assets/img/team-1-200.jpg 200w,
+                  ../assets/img/team-1-400.jpg 400w
+                "
                 sizes="140px"
                 width="400"
                 height="400"
@@ -170,8 +161,11 @@
 
             <figure class="member">
               <img
-                src="assets/img/team-2-400.jpg"
-                srcset="assets/img/team-2-200.jpg 200w, assets/img/team-2-400.jpg 400w"
+                src="../assets/img/team-2-400.jpg"
+                srcset="
+                  ../assets/img/team-2-200.jpg 200w,
+                  ../assets/img/team-2-400.jpg 400w
+                "
                 sizes="140px"
                 width="400"
                 height="400"
@@ -186,8 +180,11 @@
 
             <figure class="member">
               <img
-                src="assets/img/team-3-400.jpg"
-                srcset="assets/img/team-3-200.jpg 200w, assets/img/team-3-400.jpg 400w"
+                src="../assets/img/team-3-400.jpg"
+                srcset="
+                  ../assets/img/team-3-200.jpg 200w,
+                  ../assets/img/team-3-400.jpg 400w
+                "
                 sizes="140px"
                 width="400"
                 height="400"
@@ -214,26 +211,32 @@
         </div>
       </section>
     </main>
-
-    <!-- ============================ Shared footer ====================== -->
     <footer class="site-footer">
       <div class="wrap">
         <a href="index.html" class="logo">Volt<span>book</span></a>
 
         <nav class="footer-links" aria-label="Footer">
-          <a href="index.html">Home</a>
+          <a href="../index.html">Home</a>
           <a href="products.html">Products</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
 
         <div class="social">
-          <a href="#" aria-label="Voltbook on X"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" aria-label="Voltbook on Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="Voltbook on YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="Voltbook on X"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" aria-label="Voltbook on Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="Voltbook on YouTube"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </div>
 
-        <p class="footer-copy">Copyright &copy; 2026 Voltbook. All rights reserved.</p>
+        <p class="footer-copy">
+          Copyright &copy; 2026 Voltbook. All rights reserved.
+        </p>
       </div>
     </footer>
   </body>
