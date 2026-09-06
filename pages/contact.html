@@ -100,11 +100,12 @@
               <textarea id="message" name="message" required></textarea>
             </div>
 
-            <button type="submit" class="btn">Send message</button>
-            <p class="form-note">
-              This is a demo form for a portfolio project — messages aren't
-              actually sent.
-            </p>
+            <button onclick="sendMessage()" type="button" class="btn" id="send-message">Send message</button>
+            <script>
+              function sendMessage() {
+                alert("This is a demo form for a portfolio project — messages aren't actually sent.");
+              }
+            </script>
           </form>
         </div>
       </section>
