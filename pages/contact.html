@@ -103,6 +103,8 @@
             <button onclick="sendMessage()" type="button" class="btn" id="send-message">Send message</button>
             <script>
               function sendMessage() {
+                let button = document.getElementById("send-message");
+                button.textContent = "Thanks for your message!";
                 alert("This is a demo form for a portfolio project — messages aren't actually sent.");
               }
             </script>
